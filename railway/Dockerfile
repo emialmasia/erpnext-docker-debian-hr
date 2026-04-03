@@ -19,6 +19,9 @@ RUN echo "-> Start builder" \
     && sed -i 's/socket\.AF_INET, socket\.SOCK_STREAM/socket.AF_INET6, socket.SOCK_STREAM/g' /home/frappe/bench/apps/frappe/frappe/utils/connections.py \
     ### install your custom apps here
     # && bench get-app https://github.com/your-repo/custom_app
+    ### install HRMS here
+    && echo '{"socketio_port": 9000}' > /home/$systemUser/$benchFolderName/sites/common_site_config.json \
+    && bench get-app https://github.com/frappe/hrms --branch version-15 \
     && echo "-> Builder done!"
 
 
