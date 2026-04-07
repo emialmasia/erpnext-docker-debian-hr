@@ -23,3 +23,6 @@ bench use ${RFP_DOMAIN_NAME}
 
 echo "-> Enable scheduler"
 bench enable-scheduler
+
+echo "-> Enable server script"
+bench set-config -g server_script_enabled 1
